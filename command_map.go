@@ -1,6 +1,7 @@
 package main
 
 import (
+	"errors"
 	"fmt"
 	"log"
 	//"encoding/json"
@@ -23,6 +24,9 @@ func commandMap(cfg *config) error {
 }
 
 func commandMapb(cfg *config) error {
+	if cfg.prevLocationAreaURL == nil {
+		return errors.New("no previous page")
+	}
 	resp, err := cfg.pokeApiClient.ListLocationAreas(cfg.prevLocationAreaURL)
 	if err != nil {
 		log.Fatal(err)
