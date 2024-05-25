@@ -8,32 +8,31 @@ import (
 )
 
 func commandMap(cfg *config) error {
-    resp, err := cfg.pokeApiClient.ListLocationAreas(cfg.nextLocationAreaURL)
-    if err != nil {
-	log.Fatal(err)
-    }
-    for _, area := range resp.Results{
-	fmt.Printf(" - %s\n", area.Name)
-    }
+	resp, err := cfg.pokeApiClient.ListLocationAreas(cfg.nextLocationAreaURL)
+	if err != nil {
+		log.Fatal(err)
+	}
+	for _, area := range resp.Results {
+		fmt.Printf(" - %s\n", area.Name)
+	}
 
-    cfg.nextLocationAreaURL=resp.Next
-    cfg.prevLocationAreaURL=resp.Previous
+	cfg.nextLocationAreaURL = resp.Next
+	cfg.prevLocationAreaURL = resp.Previous
 
-    return nil
+	return nil
 }
 
 func commandMapb(cfg *config) error {
-    resp, err := cfg.pokeApiClient.ListLocationAreas(cfg.prevLocationAreaURL)
-    if err != nil {
-	log.Fatal(err)
-    }
-    for _, area := range resp.Results{
-	fmt.Printf(" - %s\n", area.Name)
-    }
+	resp, err := cfg.pokeApiClient.ListLocationAreas(cfg.prevLocationAreaURL)
+	if err != nil {
+		log.Fatal(err)
+	}
+	for _, area := range resp.Results {
+		fmt.Printf(" - %s\n", area.Name)
+	}
 
-    cfg.nextLocationAreaURL=resp.Next
-    cfg.prevLocationAreaURL=resp.Previous
+	cfg.nextLocationAreaURL = resp.Next
+	cfg.prevLocationAreaURL = resp.Previous
 
-    return nil
+	return nil
 }
-

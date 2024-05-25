@@ -9,4 +9,3 @@ func commandList() error {
 	fmt.Println("you have caught", len(pokemans), "pokemans")
 	return nil
 }
-
