@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"github.com/adamthiede/bootdev-pokedex/internal/pokeapi"
+	"time"
 )
 
 type config struct {
@@ -14,7 +15,7 @@ type config struct {
 func main() {
 	fmt.Println("Welcome to PokeApi")
 	cfg := config{
-		pokeApiClient: pokeapi.NewClient(),
+		pokeApiClient: pokeapi.NewClient(time.Hour),
 	}
 	startRepl(&cfg)
 }

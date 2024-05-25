@@ -3,7 +3,6 @@ package main
 import (
 	"errors"
 	"fmt"
-	"log"
 	//"encoding/json"
 	//"github.com/adamthiede/bootdev-pokedex/internal/pokeapi"
 )
@@ -11,7 +10,7 @@ import (
 func commandMap(cfg *config) error {
 	resp, err := cfg.pokeApiClient.ListLocationAreas(cfg.nextLocationAreaURL)
 	if err != nil {
-		log.Fatal(err)
+		return err
 	}
 	for _, area := range resp.Results {
 		fmt.Printf(" - %s\n", area.Name)
@@ -29,7 +28,7 @@ func commandMapb(cfg *config) error {
 	}
 	resp, err := cfg.pokeApiClient.ListLocationAreas(cfg.prevLocationAreaURL)
 	if err != nil {
-		log.Fatal(err)
+		return err
 	}
 	for _, area := range resp.Results {
 		fmt.Printf(" - %s\n", area.Name)

@@ -39,6 +39,11 @@ func getCommands() map[string]cliCommand {
 			description: "Get previous 20 locations",
 			callback:    commandMapb,
 		},
+		"reap": {
+			name:        "reap",
+			description: "invalidate cache",
+			callback:    commandReap,
+		},
 	}
 }
 
@@ -72,7 +77,7 @@ func startRepl(cfg *config) {
 
 		err = commands[command].callback(cfg)
 		if err != nil {
-		    fmt.Println(err)
+			fmt.Println(err)
 		}
 
 	}
