@@ -72,7 +72,7 @@ func startRepl(cfg *config) {
 		command := cleanedInput[0]
 		args := []string{}
 		if len(cleanedInput) > 1 {
-		    args = cleanedInput[1:]
+			args = cleanedInput[1:]
 		}
 
 		// get commands and check if input is in commands
