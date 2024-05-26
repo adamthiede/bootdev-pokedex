@@ -13,9 +13,6 @@ type cliCommand struct {
 	callback    func(*config, ...string) error
 }
 
-type pokemon struct {
-}
-
 func getCommands() map[string]cliCommand {
 
 	return map[string]cliCommand{
@@ -43,6 +40,21 @@ func getCommands() map[string]cliCommand {
 			name:        "explore {location_area}",
 			description: "get pokemon for a region",
 			callback:    commandExplore,
+		},
+		"catch": {
+			name:        "catch {pokemon_name}",
+			description: "try to catch a pokemon!",
+			callback:    commandCatch,
+		},
+		"inspect": {
+			name:        "inspect {pokemon_name}",
+			description: "inspect a pokemon you've caught",
+			callback:    commandInspect,
+		},
+		"pokedex": {
+			name:        "pokedex",
+			description: "list pokemon you've caught",
+			callback:    commandPokedex,
 		},
 		"reap": {
 			name:        "reap",
